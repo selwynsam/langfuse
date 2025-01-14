@@ -1,0 +1,21 @@
+{
+  "name": "langfuse-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file=.env app.js",
+    "dev2": "node --env-file=.env app2.js",
+    "dev3": "node --env-file=.env langchain-app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/core": "^0.3.29",
+    "langchain": "^0.3.11",
+    "langfuse": "^3.32.0",
+    "openai": "^4.77.4"
+  }
+}
