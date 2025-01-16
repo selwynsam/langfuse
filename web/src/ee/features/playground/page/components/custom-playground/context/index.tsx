@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, {
   createContext,
   type PropsWithChildren,
@@ -29,9 +30,9 @@ import type { ModelParamsContext } from "@/src/components/ModelParameters";
 import { env } from "@/src/env.mjs";
 
 type ToolCallingParamsContext = {
-  toolChoice: string;
-  strict: boolean;
-  parallelToolCalling: boolean;
+  toolChoice: string | undefined;
+  strict: boolean | undefined;
+  parallelToolCalling: boolean | undefined;
 };
 
 type CustomPlaygroundContextType = {

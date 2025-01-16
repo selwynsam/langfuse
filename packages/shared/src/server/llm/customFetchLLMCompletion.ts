@@ -171,7 +171,7 @@ export async function customFetchLLMCompletion(
 
     // add tools if provided
     if (hasTools) {
-      modelWithTools = chatModel.bindTools(params.tools, {
+      modelWithTools = chatModel.bindTools(params.tools ?? [], {
         tool_choice: params.toolCallingParams.toolChoice,
         strict: params.toolCallingParams.strict,
         parallel_tool_calls: params.toolCallingParams.parallelToolCalls,

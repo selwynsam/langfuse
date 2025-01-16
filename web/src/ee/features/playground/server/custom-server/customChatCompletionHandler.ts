@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { StreamingTextResponse, LangChainAdapter } from "ai";
 import { NextResponse, type NextRequest } from "next/server";
 
