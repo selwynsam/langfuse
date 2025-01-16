@@ -12,7 +12,7 @@ import { useCustomPlaygroundContext } from "../context";
 
 const TOOL_CALLING_OPTIONS = [
   { label: "auto", value: "auto" },
-  { label: "null", value: "null" },
+  { label: "null", value: null },
   { label: "required", value: "required" },
 ];
 

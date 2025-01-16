@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Terminal } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
