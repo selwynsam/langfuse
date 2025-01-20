@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Terminal } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -67,62 +66,22 @@ export const JumpToPlaygroundButton: React.FC<JumpToPlaygroundButtonProps> = (
     capture(props.analyticsEventName);
     setPlaygroundCache(capturedState);
 
-  const handleCustomClick = () => {
-    const updatedCacheStateObject = {
-      ...capturedState,
-      tools: null,
-      toolCallingParams: null || {
-        toolChoice: "none",
-        strict: false,
-        parallelToolCalling: false,
-      },
-    };
-
-    if (props.source === "generation" && props?.generation?.input?.tools) {
-      updatedCacheStateObject.tools = props.generation.input.tools || [];
-      updatedCacheStateObject.toolCallingParams = {
-        toolChoice: "auto",
-        parallelToolCalling: true,
-        strict: false,
-      };
-    }
-
-    setPlaygroundCache(updatedCacheStateObject as PlaygroundCache);
-  };
-
   if (!available) return null;
 
   return (
-    <>
-      <Button
-        variant={props.variant ?? "secondary"}
-        size={props.source === "prompt" ? "icon" : "default"}
-        title="Test in LLM playground"
-        onClick={handleClick}
-        asChild
-      >
-        <Link href={`/project/${projectId}/playground`}>
-          <Terminal className="h-4 w-4" />
-          {props.source === "generation" && (
-            <span className="ml-2">Test in playground</span>
-          )}
-        </Link>
-      </Button>
-      <Button
-        variant={props.variant ?? "secondary"}
-        size={props.source === "prompt" ? "icon" : "default"}
-        title="Test in custom LLM playground"
-        onClick={handleCustomClick}
-        asChild
-      >
-        <Link href={`/project/${projectId}/custom-playground`}>
-          <Terminal className="h-4 w-4" />
-          {props.source === "generation" && (
-            <span className="ml-2">Test in custom playground</span>
-          )}
-        </Link>
-      </Button>
-    </>
+    <Button
+      variant={props.variant ?? "secondary"}
+      title="Test in LLM playground"
+      onClick={handleClick}
+      asChild
+    >
+      <Link href={`/project/${projectId}/playground`}>
+        <Terminal className="h-4 w-4" />
+        <span className="ml-2">
+          {props.source === "generation" ? "Test in playground" : "Playground"}
+        </span>
+      </Link>
+    </Button>
   );
 };
 
