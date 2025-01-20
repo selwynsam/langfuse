@@ -79,8 +79,6 @@ export async function customFetchLLMCompletion(
     traceParams,
   } = params;
 
-  console.log("params", params);
-
   let finalCallbacks: BaseCallbackHandler[] | undefined = callbacks ?? [];
   let processTracedEvents: ProcessTracedEvents = () => Promise.resolve();
 
@@ -172,7 +170,10 @@ export async function customFetchLLMCompletion(
     // add tools if provided
     if (hasTools) {
       modelWithTools = chatModel.bindTools(params.tools ?? [], {
-        tool_choice: params.toolCallingParams.toolChoice,
+        tool_choice:
+          params.toolCallingParams?.toolChoice === "null"
+            ? null
+            : params.toolCallingParams.toolChoice,
         strict: params.toolCallingParams.strict,
         parallel_tool_calls: params.toolCallingParams.parallelToolCalls,
       });

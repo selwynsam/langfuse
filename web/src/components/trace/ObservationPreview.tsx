@@ -41,6 +41,7 @@ import { useClickhouse } from "@/src/components/layouts/ClickhouseAdminToggle";
 import { BreakdownTooltip } from "./BreakdownToolTip";
 import { InfoIcon, PlusCircle } from "lucide-react";
 import { UpsertModelFormDrawer } from "@/src/features/models/components/UpsertModelFormDrawer";
+import { JumpToReplayButton } from "@/src/features/replay/JumpToReplayButton";
 
 export const ObservationPreview = ({
   observations,
@@ -326,6 +327,13 @@ export const ObservationPreview = ({
                     source="generation"
                     generation={observationWithInputAndOutput.data}
                     analyticsEventName="trace_detail:test_in_playground_button_click"
+                  />
+                )}
+
+                {observationWithInputAndOutput.data?.type === "GENERATION" && (
+                  <JumpToReplayButton
+                    source="generation"
+                    generation={observationWithInputAndOutput.data}
                   />
                 )}
               </>

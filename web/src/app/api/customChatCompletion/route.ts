@@ -1,4 +1,4 @@
-import customChatCompletionHandler from "@/src/ee/features/playground/server/custom-server/customChatCompletionHandler";
+import customChatCompletionHandler from "@/src/features/replay/server/customChatCompletionHandler";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
