@@ -1,5 +1,5 @@
 import { Langfuse } from "langfuse"; // or "langfuse-node"
-import DATA from "./constants/data";
+import DATA from "./constants/data.js";
 
 const langfuse = new Langfuse({
   secretKey: process.env.LANGFUSE_SECRET_KEY, // TODO: get from env

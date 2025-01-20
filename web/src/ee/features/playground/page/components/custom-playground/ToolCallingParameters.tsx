@@ -12,7 +12,7 @@ import { useCustomPlaygroundContext } from "./context";
 
 const TOOL_CALLING_OPTIONS = [
   { label: "auto", value: "auto" },
-  { label: "null", value: null },
+  { label: "null", value: "null" },
   { label: "required", value: "required" },
 ];
 
@@ -97,8 +97,6 @@ const SwitchParameter = ({
 export const ToolCallingParameters = () => {
   const { toolCallingParams, setToolCallingParams, tools } =
     useCustomPlaygroundContext();
-
-  console.log("toolCallingParams", toolCallingParams);
 
   if (tools?.length === 0) {
     return null;

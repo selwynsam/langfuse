@@ -9,7 +9,7 @@ import {
 } from "@langfuse/shared";
 
 // import { PosthogCallbackHandler } from "../analytics/posthogCallback";
-import { authorizeRequestOrThrow } from "../authorizeRequest";
+// import { authorizeRequestOrThrow } from "../authorizeRequest";
 import { customValidateChatCompletionBody } from "./customValidateChatCompletionBody";
 
 import { prisma } from "@langfuse/shared/src/db";
@@ -23,7 +23,7 @@ import {
 export default async function customChatCompletionHandler(req: NextRequest) {
   try {
     const body = customValidateChatCompletionBody(await req.json());
-    const { userId } = await authorizeRequestOrThrow(body.projectId);
+    // const { userId } = await authorizeRequestOrThrow(body.projectId);
 
     const { messages, modelParams } = body;
 
@@ -57,8 +57,6 @@ export default async function customChatCompletionHandler(req: NextRequest) {
       tools: body.tools,
       toolCallingParams: body.toolCallingParams,
     });
-
-    console.log("completion", completion);
 
     if (body.tools && body.tools.length > 0) {
       return NextResponse.json({ isJson: true, completion }, { status: 200 });

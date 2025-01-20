@@ -8,6 +8,7 @@
     "dev": "node --env-file=.env app.js",
     "dev2": "node --env-file=.env app2.js",
     "dev3": "node --env-file=.env langchain-app.js",
+    "d3x:dev": "node --env-file=.env app2.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
