@@ -21,7 +21,7 @@ export const CustomResetButton: React.FC = () => {
       onClick={handleClick}
     >
       <ListRestartIcon className="mr-1 h-4 w-4" />
-      <span>Reset playground</span>
+      <span>Reset</span>
     </Button>
   );
 };

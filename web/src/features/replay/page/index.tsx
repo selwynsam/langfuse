@@ -2,7 +2,7 @@ import { FullScreenPage } from "@/src/components/layouts/full-screen-page";
 import Header from "@/src/components/layouts/header";
 import CustomPlayground from "./custom-playground";
 import { CustomSaveToPromptButton } from "./components/CustomSaveToPromptButton";
-import { ResetPlaygroundButton } from "@/src/ee/features/playground/page/components/ResetPlaygroundButton";
+import { CustomResetButton } from "./components/CustomResetButton";
 import { CustomPlaygroundProvider } from "./context";
 
 export default function ReplayPage() {
@@ -18,7 +18,7 @@ export default function ReplayPage() {
           actionButtons={
             <>
               <CustomSaveToPromptButton />
-              <ResetPlaygroundButton />
+              <CustomResetButton />
             </>
           }
         />
