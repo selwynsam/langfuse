@@ -280,7 +280,7 @@ export async function customFetchLLMCompletion(
     };
   }
 
-  if (hasTools) {
+  if (hasTools && modelWithTools) {
     return {
       completion: await modelWithTools.invoke(finalMessages),
       processTracedEvents,
