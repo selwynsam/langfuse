@@ -59,8 +59,14 @@ export const JumpToReplayButton: React.FC<JumpToReplayButtonProps> = (
       },
     };
 
-    if (props.source === "generation" && props?.generation?.input?.tools) {
-      updatedCacheStateObject.tools = props.generation.input.tools || [];
+    if (props.source === "generation" && props?.generation?.input) {
+      try {
+        const parsedInput = JSON.parse(props.generation.input);
+        updatedCacheStateObject.tools = parsedInput?.tools || [];
+      } catch (e) {
+        console.error(e);
+      }
+
       updatedCacheStateObject.toolCallingParams = {
         toolChoice: "auto",
         parallelToolCalling: true,
