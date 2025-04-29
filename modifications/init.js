@@ -1,17 +1,49 @@
 const path = require("path");
 const modifyFile = require("./modifyFile");
 
+const entitlementsModifications = require("./configs/entitlements");
 const fetchLLMCompletionModifications = require("./configs/fetchLLMCompletion");
-// const observationPreviewModifications = require("./configs/observationPreview");
+const playgroundModifications = require("./configs/playground");
+const playgroundContextModifications = require("./configs/playgroundContext");
+const chatCompletionHandlerModifications = require("./configs/chatCompletionHandler");
+const validateChatCompletionBodyModifications = require("./configs/validateChatCompletionBody");
+
+const entitlementsPath = path.join(
+  __dirname,
+  "../web/src/features/entitlements/constants/entitlements.ts",
+);
 
 const fetchLLMCompletionPath = path.join(
   __dirname,
   "../packages/shared/src/server/llm/fetchLLMCompletion.ts",
 );
-// const observationPreviewPath = path.join(
-//   __dirname,
-//   "../web/src/components/trace/ObservationPreview.tsx",
-// );
 
+const playgroundPath = path.join(
+  __dirname,
+  "../web/src/ee/features/playground/page/playground.tsx",
+);
+
+const playgroundContextPath = path.join(
+  __dirname,
+  "../web/src/ee/features/playground/page/context/index.tsx",
+);
+
+const chatCompletionHandlerPath = path.join(
+  __dirname,
+  "../web/src/ee/features/playground/server/chatCompletionHandler.ts",
+);
+
+const validateChatCompletionBodyPath = path.join(
+  __dirname,
+  "../web/src/ee/features/playground/server/validateChatCompletionBody.ts",
+);
+
+modifyFile(entitlementsPath, entitlementsModifications);
 modifyFile(fetchLLMCompletionPath, fetchLLMCompletionModifications);
-// modifyFile(observationPreviewPath, observationPreviewModifications);
+modifyFile(playgroundPath, playgroundModifications);
+modifyFile(playgroundContextPath, playgroundContextModifications);
+modifyFile(chatCompletionHandlerPath, chatCompletionHandlerModifications);
+modifyFile(
+  validateChatCompletionBodyPath,
+  validateChatCompletionBodyModifications,
+);
