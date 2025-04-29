@@ -26,7 +26,7 @@ module.exports = [
 
     pattern:
       /(const\s+handleSubmit:\s*PlaygroundContextType\["handleSubmit"\]\s*=\s*useCallback\(\s*async\s*\(\)\s*=>\s*\{[\s\S]*?\},\s*\[)([\s\S]*?)\s*\]\)/,
-    replacement: (match, p1, p2) => `${p1}${p2 ? p2 : ""} toolCallingParams]`,
+    replacement: (match, p1, p2) => `${p1}${p2 ? p2 : ""} toolCallingParams])`,
   },
   {
     id: "mod4",
