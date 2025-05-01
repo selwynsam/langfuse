@@ -7,6 +7,7 @@ const playgroundModifications = require("./configs/playground");
 const playgroundContextModifications = require("./configs/playgroundContext");
 const chatCompletionHandlerModifications = require("./configs/chatCompletionHandler");
 const validateChatCompletionBodyModifications = require("./configs/validateChatCompletionBody");
+const nextConfigModifications = require("./configs/nextConfig");
 
 const entitlementsPath = path.join(
   __dirname,
@@ -46,4 +47,26 @@ modifyFile(chatCompletionHandlerPath, chatCompletionHandlerModifications);
 modifyFile(
   validateChatCompletionBodyPath,
   validateChatCompletionBodyModifications,
+);
+
+// Disabling sentry in next config.
+modifyFile(
+  path.join(__dirname, "../web/next.config.mjs"),
+  nextConfigModifications,
+);
+
+// The below files appears to have eslint errors. Disabling eslint check for the below files
+modifyFile(
+  path.join(
+    __dirname,
+    "../web/src/features/prompts/server/actions/createPrompt.ts",
+  ),
+  [],
+);
+modifyFile(
+  path.join(
+    __dirname,
+    "../web/src/features/prompts/server/routers/promptRouter.ts",
+  ),
+  [],
 );
