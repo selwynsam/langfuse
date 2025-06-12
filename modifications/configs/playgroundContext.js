@@ -1,4 +1,4 @@
-// ======== Modification for file index.tsx locatied at [/web/src/ee/features/playground/page/context/index.tsx] =========
+// ======== Modification for file index.tsx locatied at [/web/src/features/playground/page/context/index.tsx] =========
 
 module.exports = [
   {

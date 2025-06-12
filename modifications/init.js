@@ -21,22 +21,22 @@ const fetchLLMCompletionPath = path.join(
 
 const playgroundPath = path.join(
   __dirname,
-  "../web/src/ee/features/playground/page/playground.tsx",
+  "../web/src/features/playground/page/playground.tsx",
 );
 
 const playgroundContextPath = path.join(
   __dirname,
-  "../web/src/ee/features/playground/page/context/index.tsx",
+  "../web/src/features/playground/page/context/index.tsx",
 );
 
 const chatCompletionHandlerPath = path.join(
   __dirname,
-  "../web/src/ee/features/playground/server/chatCompletionHandler.ts",
+  "../web/src/features/playground/server/chatCompletionHandler.ts",
 );
 
 const validateChatCompletionBodyPath = path.join(
   __dirname,
-  "../web/src/ee/features/playground/server/validateChatCompletionBody.ts",
+  "../web/src/features/playground/server/validateChatCompletionBody.ts",
 );
 
 modifyFile(entitlementsPath, entitlementsModifications);

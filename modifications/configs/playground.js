@@ -1,4 +1,4 @@
-// ======== Modification for file playground.tsx locatied at [/web/src/ee/features/playground/page/playground.tsx] =========
+// ======== Modification for file playground.tsx locatied at [/web/src/features/playground/page/playground.tsx] =========
 
 module.exports = [
   {

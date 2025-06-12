@@ -1,4 +1,4 @@
-// ======== Modification for file chatCompletionHandler.ts locatied at [/web/src/ee/features/playground/server/chatCompletionHandler.ts] =========
+// ======== Modification for file chatCompletionHandler.ts locatied at [/web/src/features/playground/server/chatCompletionHandler.ts] =========
 
 module.exports = [
   {

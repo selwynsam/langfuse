@@ -1,4 +1,4 @@
-// ======== Modification for file validateChatCompletionBody.js locatied at [/web/src/ee/features/playground/server/validateChatCompletionBody.ts] =========
+// ======== Modification for file validateChatCompletionBody.js locatied at [/web/src/features/playground/server/validateChatCompletionBody.ts] =========
 
 const newProperty = `
   toolCallingParams: z
