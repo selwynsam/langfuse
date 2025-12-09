@@ -31,7 +31,8 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,css}\" --experimental-cli",
     "test": "turbo run test",
     "release": "dotenv -e ../.env -- release-it",
-    "prepare": "husky"
+    "prepare": "husky",
+    "modify": "node ./modifications/init.js"
   },
   "devDependencies": {
     "@release-it/bumper": "^7.0.5",
