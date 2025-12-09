@@ -4,8 +4,7 @@ module.exports = [
   {
     id: "mod1",
 
-    pattern:
-      /export\s+default\s+withSentryConfig\(\s*nextConfig\s*,\s*\{[\s\S]*?\}\s*\);/,
+    pattern: /export\s+default\s+withBundleAnalyzer\(\s*sentryConfig\s*\);/,
     replacement: (match) => `export default nextConfig;`,
   },
 ];
