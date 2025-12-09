@@ -3,10 +3,10 @@ const modifyFile = require("./modifyFile");
 
 const entitlementsModifications = require("./configs/entitlements");
 const fetchLLMCompletionModifications = require("./configs/fetchLLMCompletion");
-const playgroundModifications = require("./configs/playground");
 const playgroundContextModifications = require("./configs/playgroundContext");
 const chatCompletionHandlerModifications = require("./configs/chatCompletionHandler");
 const validateChatCompletionBodyModifications = require("./configs/validateChatCompletionBody");
+const configurationDropdownsModifications = require("./configs/ConfigurationDropdowns");
 const nextConfigModifications = require("./configs/nextConfig");
 
 const entitlementsPath = path.join(
@@ -17,11 +17,6 @@ const entitlementsPath = path.join(
 const fetchLLMCompletionPath = path.join(
   __dirname,
   "../packages/shared/src/server/llm/fetchLLMCompletion.ts",
-);
-
-const playgroundPath = path.join(
-  __dirname,
-  "../web/src/features/playground/page/playground.tsx",
 );
 
 const playgroundContextPath = path.join(
@@ -39,15 +34,20 @@ const validateChatCompletionBodyPath = path.join(
   "../web/src/features/playground/server/validateChatCompletionBody.ts",
 );
 
+const configurationDropdownsPath = path.join(
+  __dirname,
+  "../web/src/features/playground/page/components/ConfigurationDropdowns.tsx",
+);
+
 modifyFile(entitlementsPath, entitlementsModifications);
 modifyFile(fetchLLMCompletionPath, fetchLLMCompletionModifications);
-modifyFile(playgroundPath, playgroundModifications);
 modifyFile(playgroundContextPath, playgroundContextModifications);
 modifyFile(chatCompletionHandlerPath, chatCompletionHandlerModifications);
 modifyFile(
   validateChatCompletionBodyPath,
   validateChatCompletionBodyModifications,
 );
+modifyFile(configurationDropdownsPath, configurationDropdownsModifications);
 
 // Disabling sentry in next config.
 modifyFile(
