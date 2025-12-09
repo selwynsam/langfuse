@@ -6,7 +6,14 @@ import {
   SelectContent,
   SelectValue,
 } from "@/src/components/ui/select";
+import { Button } from "@/src/components/ui/button";
 import * as Switch from "@radix-ui/react-switch";
+import { ChevronDown } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/src/components/ui/popover";
 import { cn } from "@/src/utils/tailwind";
 import { usePlaygroundContext } from "@/src/features/playground/page/context";
 
@@ -99,56 +106,61 @@ export const ToolCallingParameters = () => {
     usePlaygroundContext();
 
   if (tools?.length === 0) {
-    return (
-      <div className="mb-3">
-        <p className="text-xs text-muted-foreground">No tools attached.</p>
-      </div>
-    );
+    return null;
   }
 
   return (
-    <div>
-      <p className="font-semibold">Tool calling</p>
-      <div className="mt-4">
-        <SelectParameter
-          title="Tool choice"
-          options={TOOL_CALLING_OPTIONS}
-          value={toolCallingParams?.toolChoice || "auto"}
-          disabled={false}
-          onChange={(value) => {
-            setToolCallingParams({
-              ...toolCallingParams,
-              toolChoice: value,
-            });
-          }}
-        />
-      </div>
-      <div className="mt-4">
-        <SwitchParameter
-          title={`Parallel tool calling`}
-          disabled={false}
-          checked={toolCallingParams?.parallelToolCalling || false}
-          onCheckedChange={(checked) => {
-            setToolCallingParams({
-              ...toolCallingParams,
-              parallelToolCalling: checked,
-            });
-          }}
-        />
-      </div>
-      <div className="mt-4">
-        <SwitchParameter
-          title={`Strict`}
-          disabled={false}
-          checked={toolCallingParams?.strict || false}
-          onCheckedChange={(checked) => {
-            setToolCallingParams({
-              ...toolCallingParams,
-              strict: checked,
-            });
-          }}
-        />
-      </div>
-    </div>
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline" size="sm" className="h-8 gap-2">
+          Tool calling <ChevronDown className="h-3 w-3" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-80 p-4" align="start">
+        <div>
+          <p className="font-semibold">Tool calling</p>
+          <div className="mt-4">
+            <SelectParameter
+              title="Tool choice"
+              options={TOOL_CALLING_OPTIONS}
+              value={toolCallingParams?.toolChoice || "auto"}
+              disabled={false}
+              onChange={(value) => {
+                setToolCallingParams({
+                  ...toolCallingParams,
+                  toolChoice: value,
+                });
+              }}
+            />
+          </div>
+          <div className="mt-4">
+            <SwitchParameter
+              title={`Parallel tool calling`}
+              disabled={false}
+              checked={toolCallingParams?.parallelToolCalling || false}
+              onCheckedChange={(checked) => {
+                setToolCallingParams({
+                  ...toolCallingParams,
+                  parallelToolCalling: checked,
+                });
+              }}
+            />
+          </div>
+          <div className="mt-4">
+            <SwitchParameter
+              title={`Strict`}
+              disabled={false}
+              checked={toolCallingParams?.strict || false}
+              onCheckedChange={(checked) => {
+                setToolCallingParams({
+                  ...toolCallingParams,
+                  strict: checked,
+                });
+              }}
+            />
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
   );
 };
