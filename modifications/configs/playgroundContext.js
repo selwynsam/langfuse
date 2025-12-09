@@ -23,10 +23,10 @@ module.exports = [
   },
   {
     id: "mod3",
-
     pattern:
-      /(const\s+handleSubmit:\s*PlaygroundContextType\["handleSubmit"\]\s*=\s*useCallback\(\s*async\s*\(\)\s*=>\s*\{[\s\S]*?\},\s*\[)([\s\S]*?)\s*\]\)/,
-    replacement: (match, p1, p2) => `${p1}${p2 ? p2 : ""} toolCallingParams])`,
+      /(const handleSubmit\s*:\s*PlaygroundContextType\["handleSubmit"\]\s*=\s*useCallback\s*\(\s*async\s*\(\s*streaming\s*=\s*true\s*\)\s*=>\s*\{[\s\S]*?\},\s*\[[\s\S]*?)(structuredOutputSchema,\s*projectId,?\s*)(\],?\s*\);)/,
+    replacement: (match, p1, p2, p3) =>
+      `${p1}${p2}\n      toolCallingParams,\n    ],\n  );`,
   },
   {
     id: "mod4",
